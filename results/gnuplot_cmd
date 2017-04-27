@@ -1,0 +1,17 @@
+reset
+set terminal png size 1024,768
+set colorsequence podo
+set style line 1 lt 7 lw 1 pt 7 pi -1 ps 1.5
+set style line 2 lt 2 lw 1 pt 7 pi -1 ps 1.5
+set style line 3 lt 6 lw 1 pt 7 pi -1 ps 1.5
+set style line 4 lt 3 lw 1 pt 7 pi -1 ps 1.5
+
+set output "dimension_effect_precision.png"
+set title "Precision in % of the classification with KNN in function of the dimensionality"
+set key right center
+plot 'dimension_results.csv' u 1:2 title "PCA" with linespoints ls 1, 'dimension_results.csv' u 1:5 title "LSA" with linespoints ls 2, 'dimension_results.csv' u 1:8 title "DAE" with linespoints ls 3, 'dimension_results.csv' u 1:11 title "VAE" with linespoints ls 4
+
+set output "trainsize_effect_precision.png"
+set title "Precision in % of the classification with KNN in function of the train set size"
+set key right center
+plot 'trainsize_results.csv' u 1:2 title "PCA" with linespoints ls 1, 'trainsize_results.csv' u 1:5 title "LSA" with linespoints ls 2, 'trainsize_results.csv' u 1:8 title "DAE" with linespoints ls 3, 'trainsize_results.csv' u 1:11 title "VAE" with linespoints ls 4
